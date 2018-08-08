@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Mob Player -create-</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>New Player</h1>
+    <form th:action="@{/mobs}" th:method="post">
+        <div class="form-group">
+            <label class="control-label">名前</label>
+            <input class="form-control" type="text" name="name" />
+        </div>
+        <button class="btn btn-default" type="submit">作成</button>
+    </form>
+    <div class="pull-right">
+        <a class="btn btn-default" href="/mobs">go to save data</a>
+    </div>
+</div>
+</body>
+</html>

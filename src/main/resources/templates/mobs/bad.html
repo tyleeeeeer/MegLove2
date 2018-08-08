@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>End</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Ending</h1>
+    <div th:object="${mob}">
+        <div>
+            <p>
+                <span th:text="*{name}"></span>
+                <span>は遠くからめぐちゃんを見つめている。</span>
+            </p>
+            <p>
+                <span>めぐちゃんは</span>
+                <span th:text="*{name}"></span>
+                <span>を通報した</span>
+            </p>
+            <p>
+                <span th:text="*{name}"></span>
+                <span>はクビになった</span>
+            </p>
+
+        </div>
+    </div>
+
+    <div class="pull-right">
+        <a class="btn btn-default" href="/">HOME</a>
+    </div>
+</div>
+</body>
+</html>

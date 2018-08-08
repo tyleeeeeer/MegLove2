@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Listing Players - meglove</title>
+    <!-- ① -->
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>MegLove SaveData</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>name</th>
+            <th>continue</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- ② -->
+        <tr th:each="mob:${mobs}" th:object="${mob}">
+            <!-- ③ -->
+            <td th:text="*{name}"></td>
+            <!-- ④ -->
+            <td><a class="btn btn-default btn-xs" th:href="@{/mobs/{id}(id=*{id})}">はじめる</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-default" href="/mobs/new">新規作成</a>
+    <div class="pull-right">
+        <a class="btn btn-default" href="/">HOME</a>
+    </div>
+</div>
+
+</body>
+</html>
