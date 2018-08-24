@@ -16,20 +16,17 @@
     <div class="row" th:object="${mob}">
         <!--　画像の挿入！　-->
         <div class="bgimg" >
-            <img th:src="@{/img/meglove_flower.jpg}">
+            <img th:src="@{/img/meglove_bad.jpg}">
         </div>
         <!-- コメント欄 -->
         <div id= "commentsec" class="row">
             <div class="message">
                 <!--　コメント書いてね♥　-->
                 <div></div>
-                <p>めぐちゃんがお花を摘んでいる</p>
-                <p><span th:text="*{name}"></span>はどうする？</p>
+                <p>告白したが断られた。</p>
+                <p>そしてますますの健闘を祈られた。</p>
                 <!--　ボタン　-->
-                <div class="selectbtn">
-                    <a th:href="@{/mobs/{id}/2/happy(id=*{id})}" class="btn btn-default">A:一緒にお花を摘みに行く</a>
-                    <a th:href="@{/mobs/{id}/2/bad(id=*{id})}" class="btn btn-default">B:背後に立ってめぐちゃんの香りを楽しむ</a>
-                </div>
+                <a class="btn btn-primary" href="/mobs">戻る</a>
             </div>
         </div>
 
@@ -63,12 +60,14 @@
 
     img{
         padding: 10px;
-        width: 820px;
+        width: 500px;
 
         border:pink 2px solid;
         border-radius: 10px;
-        background-image: url("../../static/img/meglove_flower.jpg");
+        background-image: url("../static/img/sample.jpg");
         position: absolute;
+        right: 70px;
+
 
         top: 50%;
         left: 50%;
