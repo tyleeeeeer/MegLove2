@@ -1,42 +1,82 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8" />
-    <title>Stroy1</title>
-    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <meta charset="utf-8"/>
+    <title>Practice Page</title>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
     <script src="/js/jquery.js"></script>
     <script src="/js/bootstrap.js"></script>
+    <meta charset="UTF-8">
 </head>
+
+
 <body>
 <div class="container">
-    <div class="row">
-        <h1>Story1</h1>
-        <div th:object="${mob}" >
-            <div >
-                <p>
-                    <span th:text="*{name}"></span>
-                    <span>はめぐちゃんに恋をしている</span>
-                </p>
-
-                <p>昼休み、めぐちゃんが一人でランチを食べている</p>
-                <p>
-                    <span th:text="*{name}"></span>はどうする？
-
-                </p>
+    <div class="row" th:object="${mob}">
+        <!--　画像の挿入！　-->
+        <div class="bgimg" >
+            <img th:src="@{/img/meglove_flower.jpg}">
+        </div>
+        <!-- コメント欄 -->
+        <div id= "commentsec" class="row">
+            <div class="message">
+                <!--　コメント書いてね♥　-->
+                <div></div>
+                <p>めぐちゃんがお花を摘んでいる</p>
+                <p><span th:text="*{name}"></span>はどうする？</p>
+                <!--　ボタン　-->
+                <div class="selectbtn">
+                    <a th:href="@{/mobs/{id}/2/happy(id=*{id})}" class="btn btn-default">A:一緒にお花を摘みに行く</a>
+                    <a th:href="@{/mobs/{id}/2/bad(id=*{id})}" class="btn btn-default">B:背後に立ってめぐちゃんの香りを楽しむ</a>
+                </div>
             </div>
-            <!-- button -->
-            <div>
-                <a class="btn btn-primary" th:href="@{/mobs/{id}/happy(id=*{id})}">一緒にご飯を食べる</a>
-                <a class="btn btn-primary" th:href="@{/mobs/{id}/bad(id=*{id})}">遠くから眺める</a>
-            </div>
-
         </div>
 
-        <div class="pull-right">
-            <a class="btn btn-default" href="/mobs">go to save data</a>
-        </div>
+
     </div>
-
 </div>
+
+
 </body>
 </html>
+
+<style>
+    .message{
+        background: #ffc0cb;
+        opacity: 0.9;
+        text-align: center;
+        color: black;
+        border-radius: 10px;
+        border:3px black solid;
+        padding: 10px;
+    }
+
+
+    #commentsec{
+        padding: 0 30px;
+        margin-top: 500px;
+    }
+    p{
+        font-size:30px;
+    }
+
+    img{
+        padding: 10px;
+        width: 820px;
+
+        border:pink 2px solid;
+        border-radius: 10px;
+        background-image: url("../../static/img/meglove_flower.jpg");
+        position: absolute;
+
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    .bgimg{
+        text-align: center;
+    }
+
+
+</style>

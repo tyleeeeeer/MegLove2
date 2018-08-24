@@ -46,17 +46,83 @@ public class MobController {
         mobService.save(mob);
         return "redirect:/mobs";
     }
-    @GetMapping("{id}/happy")
-    public String happy(@PathVariable Long id, Model model){
+    @GetMapping("{id}/2/happy")
+    public String happy1(@PathVariable Long id, Model model){
         Mob mob = mobService.findOne(id);
         model.addAttribute("mob", mob);
-        return "mobs/happy";
+        mob.koukando += 50;
+        mob.message = "楽しくお花を摘んで好感度があがった";
+        return "mobs/show2";
     }
 
-    @GetMapping("{id}/bad")
-    public String bad(@PathVariable Long id, Model model){
+    @GetMapping("{id}/2/bad")
+    public String bad1(@PathVariable Long id, Model model){
         Mob mob = mobService.findOne(id);
         model.addAttribute("mob",mob);
-        return "mobs/bad";
+        mob.message = "めぐちゃん「匂いフェチとかキモっ」好感度が下がった";
+        mob.koukando -= 50;
+
+        return "mobs/show2";
     }
+
+    @GetMapping("{id}/3/happy")
+    public String happy2(@PathVariable Long id, Model model){
+        Mob mob = mobService.findOne(id);
+        model.addAttribute("mob", mob);
+        Mob.koukando += 50;
+        mob.message = "めぐちゃん「（ちょっとキュンとした）」好感度が上がった";
+        return "mobs/show3";
+    }
+
+    @GetMapping("{id}/3/bad")
+    public String bad2(@PathVariable Long id, Model model){
+        Mob mob = mobService.findOne(id);
+        model.addAttribute("mob",mob);
+        mob.message = "めぐちゃん「（この人私ばっか見てキモ。。。運転しろよ）」好感度が下がった";
+        Mob.koukando -= 50;
+
+        return "mobs/show3";
+    }
+
+    @GetMapping("{id}/ending/happy")
+    public String happy3(@PathVariable Long id, Model model){
+        Mob mob = mobService.findOne(id);
+        model.addAttribute("mob", mob);
+        Mob.koukando += 50;
+        if (Mob.koukando == 150) {
+            Mob.koukando = 0;
+            return "mobs/ending";
+        } else if (Mob.koukando == -150) {
+            Mob.koukando = 0;
+            return "mobs/ending3";
+        } else {
+            Mob.koukando = 0;
+            return "mobs/ending2";
+        }
+
+    }
+
+    @GetMapping("{id}/ending/bad")
+    public String bad3(@PathVariable Long id, Model model){
+        Mob mob = mobService.findOne(id);
+        model.addAttribute("mob",mob);
+        Mob.koukando -= 50;
+
+        if (Mob.koukando == 150) {
+            Mob.koukando = 0;
+            return "mobs/ending";
+        } else if (Mob.koukando == -150) {
+            Mob.koukando = 0;
+            return "mobs/ending3";
+        } else {
+            Mob.koukando = 0;
+            return "mobs/ending2";
+        }
+    }
+
+
+
+
+
+
 }

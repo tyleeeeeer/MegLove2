@@ -11,7 +11,8 @@ public class Mob {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-//    private Integer koukando = 0;
+    public static int koukando;
+    public String message;
 
     public Long getId(){
         return id;
@@ -27,12 +28,12 @@ public class Mob {
         this.name = name;
     }
 
-//    public Integer getKoukando(){
-//        return koukando;
-//    }
-//    public void setKoukando(Integer koukando){
-//        this.koukando = koukando;
-//    }
+    public Integer getKoukando(){
+        return koukando;
+    }
+    public void setKoukando(int koukando){
+        this.koukando = koukando;
+    }
     @Override
     public String toString(){
         return "Mob [id=" + id + ", name=" + "]";
